@@ -26,5 +26,6 @@ Route::middleware('level')->group(function (){
 		Route::resource('book', 'BookController');
 		Route::resource('transaction', 'TransactionController');
 		Route::resource('history', 'HistoryController');
+		Route::resource('news', 'NewsController');
 	});
 });
