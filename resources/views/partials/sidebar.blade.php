@@ -36,6 +36,12 @@
                     <p>Kategori</p>
                 </a>
                 </li>
+                <li class="{{ Route::is('admin.news.index') ? 'active' : '' }}">
+                <a href="{{ route('admin.news.index') }}">
+                    <i class="nc-icon nc-single-copy-04"></i>
+                    <p>News</p>
+                </a>
+                </li>
                 <li class="{{ Route::is('admin.transaction.index') ? 'active' : '' }}">
                 <a href="{{ route('admin.transaction.index') }}">
                     <i class="nc-icon nc-refresh-69"></i>
