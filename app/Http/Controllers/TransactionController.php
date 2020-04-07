@@ -7,6 +7,7 @@ use App\User;
 use App\Book;
 use App\History;
 use Illuminate\Http\Request;
+use Auth;
 use DataTables;
 use Carbon\Carbon;
 
@@ -25,20 +26,31 @@ class TransactionController extends Controller
     
     public function index(Request $request)
     {
-        if ($request->ajax()) {
-            // $data = Book::latest()->get();
-            $data = Transaction::with('user','book')->get();
+        if(Auth::user()->level == 'admin'){
+            if ($request->ajax()) {
+                $data = Transaction::with('user','book')->get();
 
-            return Datatables::of($data)->addIndexColumn()->addColumn('option', function($row){
-                $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteItem">PINJAM</a>';
-                return $btn;
-            })->rawColumns(['option'])->make(true);
+                return Datatables::of($data)->addIndexColumn()->addColumn('option', function($row){
+                    $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteItem">PINJAM</a>';
+                    return $btn;
+                })->rawColumns(['option'])->make(true);
+            }
+
+            $user = User::get();
+            $book = Book::where('status','1')->get();
+
+            return view('admin.transaction', compact('user','book'));
+        }elseif(Auth::user()->level == 'member'){
+            if ($request->ajax()) {
+                $data = Transaction::with('user','book')->get();
+
+                return Datatables::of($data)->make(true);
+            }
+
+            $transaction = Transaction::where('user_id',Auth::user()->id)->get();
+            
+            return view('member.transaction', compact('transaction'));
         }
-
-        $user = User::get();
-        $book = Book::where('status','1')->get();
-
-        return view('admin.transaction', compact('user','book'));
     }
 
     /**

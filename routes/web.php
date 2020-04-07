@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 
@@ -27,4 +25,8 @@ Route::middleware('level')->group(function (){
 		Route::resource('transaction', 'TransactionController');
 		Route::resource('history', 'HistoryController');
 	});
+});
+
+Route::prefix('member')->name('member.')->group(function(){
+	Route::resource('transaction', 'TransactionController');
 });
