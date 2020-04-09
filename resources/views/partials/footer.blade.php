@@ -28,35 +28,35 @@
             </footer>
         @else
             <!-- Start: Footer -->
-            <footer class="site-footer">
+            <footer class="site-footer" id="footer">
                 <div class="container">
                     <div id="footer-widgets">
                         <div class="row">
                             <div class="col-md-4 col-sm-6 widget-container">
                                 <div id="text-2" class="widget widget_text">
-                                    <h3 class="footer-widget-title">About Libraria</h3>
+                                    <h3 class="footer-widget-title">Tentang Perwima</h3>
                                     <span class="underline left"></span>
                                     <div class="textwidget">
-                                        It is a long established fact that a reader will be distracted by the readable content of a page when looking.
+                                        Perpustakaan tempat mencari, mengulik, & mengkaji ilmu pengetahuan.
                                     </div>
                                     <address>
                                         <div class="info">
                                             <i class="fa fa-location-arrow"></i>
-                                            <span>21 King Street, Melbourne, Victoria 3000 Australia</span>
+                                            <span>Jalan 210 Koridor Lantai 2 SMK Wikrama Bogor</span>
                                         </div>
                                         <div class="info">
                                             <i class="fa fa-envelope"></i>
-                                            <span><a href="mailto:support@libraria.com">support@libraria.com</a></span>
+                                            <span><a href="mailto:support@perwima.com">support@perwima.com</a></span>
                                         </div>
                                         <div class="info">
                                             <i class="fa fa-phone"></i>
-                                            <span><a href="tel:012-345-6789">+ 012-345-6789</a></span>
+                                            <span><a href="tel:+62-813-8459-3009">+62-813-8459-3009</a></span>
                                         </div>
                                     </address>
                                 </div>
                             </div>
                             <div class="col-md-2 col-sm-6 widget-container">
-                                <div id="nav_menu-2" class="widget widget_nav_menu">
+                                <!-- <div id="nav_menu-2" class="widget widget_nav_menu">
                                     <h3 class="footer-widget-title">Quick Links</h3>
                                     <span class="underline left"></span>
                                     <div class="menu-quick-links-container">
@@ -69,36 +69,32 @@
                                             <li><a href="#">Annual Report</a></li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="clearfix hidden-lg hidden-md hidden-xs tablet-margin-bottom"></div>
                             <div class="col-md-2 col-sm-6 widget-container">
                                 <div id="text-4" class="widget widget_text">
-                                    <h3 class="footer-widget-title">Timing</h3>
+                                    <h3 class="footer-widget-title">Jam Operasi</h3>
                                     <span class="underline left"></span>
                                     <div class="timming-text-widget">
-                                        <time datetime="2017-02-13">Mon - Thu: 9 am - 9 pm</time>
-                                        <time datetime="2017-02-13">Fri: 9 am - 6 pm</time>
-                                        <time datetime="2017-02-13">Sat: 9 am - 5 pm</time>
-                                        <time datetime="2017-02-13">Sun: 1 pm - 6 pm</time>
-                                        <ul>
-                                            <li><a href="#">Closings</a></li>
-                                            <li><a href="#">Branches</a></li>
-                                        </ul>
+                                        <time datetime="2017-02-13">Senin - Jumat:</time>
+                                        <time datetime="2017-02-13">9 am - 9 pm</time>
+                                        <time datetime="2017-02-13">&nbsp;</time>
+                                        <time datetime="2017-02-13">Sabtu:</time>
+                                        <time datetime="2017-02-13">9 am - 5 pm</time>
+                                        <time datetime="2017-02-13">&nbsp;</time>
+                                        <time datetime="2017-02-13">Minggu: Tutup</time>
                                     </div>
                                 </div>			
                             </div>
                             <div class="col-md-4 col-sm-6 widget-container">
                                 <div class="widget twitter-widget">
-                                    <h3 class="footer-widget-title">Latest Tweets</h3>
+                                    <h3 class="footer-widget-title">Kabar Terbaru</h3>
                                     <span class="underline left"></span>
                                     <div id="twitter-feed">
                                         <ul>
                                             <li>
-                                                <p><a href="#">@TemplateLibraria</a> Sed ut perspiciatis unde omnis iste natus error sit voluptatem. <a href="#">template-libraria.com</a></p>
-                                            </li>
-                                            <li>
-                                                <p><a href="#">@TemplateLibraria</a> Sed ut perspiciatis unde omnis iste natus error sit voluptatem. <a href="#">template-libraria.com</a></p>
+                                                <p><a href="#">@perwima</a> -.</p>
                                             </li>
                                         </ul>
                                     </div>
@@ -111,18 +107,16 @@
                     <div class="container">
                         <div class="row">
                             <div class="footer-text col-md-3">
-                                <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
+                                <p><a target="_blank" href="https://www.smkwikrama.sch.id/">PERWIMA</a></p>
                             </div>
                             <div class="col-md-9 pull-right">
                                 <ul>
-                                    <li><a href="index-2.html">Home</a></li>
-                                    <li><a href="books-media-list-view.html">Books &amp; Media</a></li>
-                                    <li><a href="news-events-list-view.html">News &amp; Events</a></li>
-                                    <li><a href="#">Kids &amp; Teens</a></li>
-                                    <li><a href="services.html">Services</a></li>
-                                    <li><a href="#">Research</a></li>
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="{{ route('home') }}">Beranda</a></li>
+                                    <li><a href="{{ route('home') }}/#bookandmedia">Buku & Media</a></li>
+                                    <li><a href="{{ route('home') }}/#newsandevent">Berita & Acara</a></li>
+                                    <li><a href="{{ route('home') }}/#page">Halaman</a></li>
+                                    <li><a href="{{ route('home') }}/#footer">Layanan</a></li>
+                                    <li><a href="{{ route('home') }}/#footer">Kontak</a></li>
                                 </ul>
                             </div>
                         </div>

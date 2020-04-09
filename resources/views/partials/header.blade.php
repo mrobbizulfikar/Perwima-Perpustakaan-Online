@@ -10,7 +10,7 @@
                         <span class="navbar-toggler-bar bar3"></span>
                     </button>
                     </div>
-                    <a class="navbar-brand" href="#pablo">Dashboard</a>
+                    <a class="navbar-brand">Dashboard</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -75,7 +75,7 @@
                                         <div class="navbar-brand">
                                             <h1>
                                                 <a href="index-2.html">
-                                                    <img src="{{ asset('libraria_template/images/libraria-logo-v1.png') }}" alt="LIBRARIA" />
+                                                    <img src="{{ asset('media/images/perwima/logo.png') }}" alt="LIBRARIA" />
                                                 </a>
                                             </h1>
                                         </div>
@@ -107,15 +107,15 @@
                                                                 <ul>
                                                                     @foreach($transaction as $ft)
                                                                         <li class="clearfix">
-                                                                            <img src="{{ asset('libraria_template/images/header-cart-image-01.jpg') }}" alt="cart item" />
+                                                                            <img src="{{ asset('media/images/book/' . $ft->book->image) }}" alt="cart item" />
                                                                             <div class="item-info">
                                                                                 <div class="name">
-                                                                                    <a href="#">The Great Gatsby</a>
+                                                                                    <a href="#">{{ $ft->book->title }}</a>
                                                                                 </div>
-                                                                                <div class="author"><strong>Author:</strong> F. Scott Fitzgerald</div>
-                                                                                <div class="price">1 X $10.00</div>
+                                                                                <div class="author"><strong>Author:</strong> {{ $ft->book->author }}</div>
+                                                                                <div class="price">{{ $ft->borrow_date }} - {{ $ft->return_date }}</div>
                                                                             </div>
-                                                                            <a class="remove" href="#"><i class="fa fa-trash-o"></i></a>
+                                                                            <a class="remove" href="{{ route('book.detail',$ft->book->isbn) }}"><i class="fa fa-info-circle"></i></a>
                                                                         </li>
                                                                     @endforeach
                                                                 </ul>
@@ -153,42 +153,24 @@
                                     </div>
                                     <div class="navbar-collapse hidden-sm hidden-xs">
                                         <ul class="nav navbar-nav">
-                                            <li class="dropdown active">
-                                                <a data-toggle="dropdown" class="dropdown-toggle disabled" href="index-2.html">Beranda</a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="index-2.html">Home V1</a></li>
-                                                    <li><a href="home-v2.html">Home V2</a></li>
-                                                    <li><a href="home-v3.html">Home V3</a></li>
-                                                </ul>
+                                            <li class="dropdown {{ Route::is('home') ? 'active' : '' }}">
+                                                <a data-toggle="dropdown" class="dropdown-toggle disabled" href="{{ route('home') }}">Beranda</a>
+                                            </li>
+                                            <li class="dropdown {{ Route::is('book.detail') ? 'active' : '' }}">
+                                                <a data-toggle="dropdown" class="dropdown-toggle disabled" href="{{ route('home') }}/#bookandmedia">Buku &amp; Media</a>
                                             </li>
                                             <li class="dropdown">
-                                                <a data-toggle="dropdown" class="dropdown-toggle disabled" href="books-media-list-view.html">Buku &amp; Media</a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="books-media-list-view.html">Books &amp; Media List View</a></li>
-                                                    <li><a href="books-media-gird-view-v1.html">Books &amp; Media Grid View V1</a></li>
-                                                    <li><a href="books-media-gird-view-v2.html">Books &amp; Media Grid View V2</a></li>
-                                                    <li><a href="books-media-detail-v1.html">Books &amp; Media Detail V1</a></li>
-                                                    <li><a href="books-media-detail-v2.html">Books &amp; Media Detail V2</a></li>
-                                                </ul>
-                                            </li>
+                                                <a data-toggle="dropdown" class="dropdown-toggle disabled" href="{{ route('home') }}/#newsandevent">Berita &amp; Acara</a>
+                                            </li>                                        
                                             <li class="dropdown">
-                                                <a data-toggle="dropdown" class="dropdown-toggle disabled" href="news-events-list-view.html">Berita &amp; Acara</a>
+                                                <a data-toggle="dropdown" class="dropdown-toggle disabled" href="#" id="page">HALAMAN</a>
                                                 <ul class="dropdown-menu">
-                                                    <li><a href="news-events-list-view.html">News &amp; Events List View</a></li>
-                                                    <li><a href="news-events-detail.html">News &amp; Events Detail</a></li>
+                                                    <li><a href="{{ route('home') }}/#newreleases">Rilisan Terbaru</a></li>
+                                                    <li><a href="{{ route('home') }}/#ourteam">Tim Kami</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="dropdown">
-                                                <a data-toggle="dropdown" class="dropdown-toggle disabled" href="#">HALAMAN</a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="cart.html">Cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="signin.html">Signin/Register</a></li>
-                                                    <li><a href="404.html">404/Error</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="services.html">Layanan</a></li>
-                                            <li><a href="contact.html">KONTAK</a></li>
+                                            <li><a href="{{ route('home') }}/#footer">Layanan</a></li>
+                                            <li><a href="{{ route('home') }}/#footer">Kontak</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -198,52 +180,27 @@
                                 <div id="mobile-menu">
                                     <ul>
                                         <li class="mobile-title">
-                                            <h4>Navigation</h4>
+                                            <h4>Navigasi</h4>
                                             <a href="#" class="close"></a>
                                         </li>
                                         <li>
-                                            <a href="index-2.html">Home</a>
-                                            <ul>
-                                                <li><a href="index-2.html">Home V1</a></li>
-                                                <li><a href="home-v2.html">Home V2</a></li>
-                                                <li><a href="home-v3.html">Home V3</a></li>
-                                            </ul>
+                                            <a href="{{ route('home') }}">Beranda</a>
                                         </li>
                                         <li>
-                                            <a href="books-media-list-view.html">Books &amp; Media</a>
-                                            <ul>
-                                                <li><a href="books-media-list-view.html">Books &amp; Media List View</a></li>
-                                                <li><a href="books-media-gird-view-v1.html">Books &amp; Media Grid View V1</a></li>
-                                                <li><a href="books-media-gird-view-v2.html">Books &amp; Media Grid View V2</a></li>
-                                                <li><a href="books-media-detail-v1.html">Books &amp; Media Detail V1</a></li>
-                                                <li><a href="books-media-detail-v2.html">Books &amp; Media Detail V2</a></li>
-                                            </ul>
+                                            <a href="#bookandmedia">Buku &amp; Media</a>
                                         </li>
                                         <li>
-                                            <a href="news-events-list-view.html">News &amp; Events</a>
-                                            <ul>
-                                                <li><a href="news-events-list-view.html">News &amp; Events List View</a></li>
-                                                <li><a href="news-events-detail.html">News &amp; Events Detail</a></li>
-                                            </ul>
+                                            <a href="#newsandevent">Berita &amp; Acara</a>
                                         </li>
                                         <li>
-                                            <a href="#">Pages</a>
+                                            <a href="#">Halaman</a>
                                             <ul>
-                                                <li><a href="cart.html">Cart</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="signin.html">Signin/Register</a></li>
-                                                <li><a href="404.html">404/Error</a></li>
+                                                <li><a href="{{ route('home') }}/#newreleases">Rilisan Terbaru</a></li>
+                                                <li><a href="{{ route('home') }}/#ourteam">Tim Kami</a></li>
                                             </ul>
                                         </li>
-                                        <li>
-                                            <a href="blog.html">Blog</a>
-                                            <ul>
-                                                <li><a href="blog.html">Blog Grid View</a></li>
-                                                <li><a href="blog-detail.html">Blog Detail</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="{{ route('home') }}/#footer">Layanan</a></li>
+                                        <li><a href="{{ route('home') }}/#footer">Kontak</a></li>
                                     </ul>
                                 </div>
                             </div>

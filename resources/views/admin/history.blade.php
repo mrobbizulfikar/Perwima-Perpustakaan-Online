@@ -10,7 +10,6 @@
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title pull-left">Riwayat Transaksi</h4>
-                                <button class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light" id="addItem">TAMBAH BARU </button>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">

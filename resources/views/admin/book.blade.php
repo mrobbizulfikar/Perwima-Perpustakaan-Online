@@ -9,7 +9,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title pull-left">Kategori Buku</h4>
+                                <h4 class="card-title pull-left">Koleksi Buku</h4>
                                 <button class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light" id="addItem">TAMBAH BARU </button>
                             </div>
                             <div class="card-body">

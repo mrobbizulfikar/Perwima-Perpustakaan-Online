@@ -8,9 +8,9 @@
         <section class="page-banner services-banner">
             <div class="container">
                 <div class="banner-header">
-                    <h2>Signin</h2>
+                    <h2>Masuk / Daftar</h2>
                     <span class="underline center"></span>
-                    <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
+                    <p class="lead">Silakan untuk Masuk atau Daftar di Perwima.</p>
                 </div>
                 <div class="breadcrumb">
                     <ul>
@@ -70,7 +70,7 @@
                                                             <div class="clear"></div>
                                                             <div class="password-form-row">
                                                                 <p class="form-row input-checkbox">
-                                                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                                                    <input type="checkbox" name="rememberme" id="rememberme" {{ old('remember') ? 'checked' : '' }}>
                                                                     <label class="inline" for="rememberme">Ingatkan saya</label>
                                                                 </p>
                                                                 <p class="lost_password">
@@ -159,61 +159,7 @@
         </div>
         <!-- End: Cart Section -->
         
-        <!-- Start: Social Network -->
-        <section class="social-network section-padding">
-            <div class="container">
-                <div class="center-content">
-                    <h2 class="section-title">Follow Us</h2>
-                    <span class="underline center"></span>
-                    <p class="lead">Perpustakaan Wikrama Bogor.</p>
-                </div>
-                <ul>
-                    <li>
-                        <a class="facebook" href="#" target="_blank">
-                            <span>
-                                <i class="fa fa-facebook-f"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="twitter" href="#" target="_blank">
-                            <span>
-                                <i class="fa fa-twitter"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="google" href="#" target="_blank">
-                            <span>
-                                <i class="fa fa-google-plus"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="rss" href="#" target="_blank">
-                            <span>
-                                <i class="fa fa-rss"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="linkedin" href="#" target="_blank">
-                            <span>
-                                <i class="fa fa-linkedin"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="youtube" href="#" target="_blank">
-                            <span>
-                                <i class="fa fa-youtube"></i>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <!-- End: Social Network -->
+        @include('partials.sections.socialnetwork')
 @endsection
 
 @push('script')

@@ -4,7 +4,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Favicon -->
     <link href="{{ asset('libraria_template/images/favicon.ico') }}" rel="icon" type="image/x-icon" />
@@ -77,6 +77,12 @@
         <!-- Mobile Menu -->
         <link href="{{ asset('libraria_template/css/mmenu.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('libraria_template/css/mmenu.positioning.css') }}" rel="stylesheet" type="text/css" />
+        
+        <!-- Responsive Table -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('libraria_template/css/responsivetable.css') }}" />
+
+        <!-- Accordion Stylesheet -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('libraria_template/css/jquery.accordion.css') }}">
         
         <!-- Stylesheet -->
         <link href="{{ asset('libraria_template/style.css') }}" rel="stylesheet" type="text/css" />

@@ -9,7 +9,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title pull-left">News</h4>
+                                <h4 class="card-title pull-left">Berita</h4>
                                 <button class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light" id="addItem">TAMBAH BARU </button>
                             </div>
                             <div class="card-body">
@@ -46,7 +46,7 @@
             </div>
 
             <div class="modal fade" id="ajaxModel" aria-hidden="true" data-toggle="modal">
-                <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title text-danger" id="modelHeading"></h5>
@@ -66,12 +66,12 @@
                                                 <input type="text" class="form-control" id="title" name="title" placeholder="Judul news" value="" required="">
                                             </div>
                                             <br>
-                                            <label for="description" class="col-sm-2">Deskripsi&nbsp;News</label>
+                                            <label for="description" class="col-sm-2">Deskripsi</label>
                                             <div class="col-sm-12">
                                                 <textarea class="form-control" name="description" id="description" required="" placeholder="Masukkan deskripsi buku"></textarea>
                                             </div>
                                             <br>
-                                            <label for="event_date" class="col-sm-2">Judul</label>
+                                            <label for="event_date" class="col-sm-2">Tanggal</label>
                                             <div class="col-sm-12">
                                                 <input type="date" class="form-control" id="event_date" name="event_date" value="" required="">
                                             </div>

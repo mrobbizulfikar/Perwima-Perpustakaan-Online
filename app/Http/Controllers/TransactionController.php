@@ -38,14 +38,14 @@ class TransactionController extends Controller
 
             $user = User::get();
             $book = Book::where('status','1')->get();
-
-            return view('admin.transaction', compact('user','book'));
-        }elseif(Auth::user()->level == 'member'){
-            if ($request->ajax()) {
-                $data = Transaction::with('user','book')->get();
-
-                return Datatables::of($data)->make(true);
+            
+            $transaction = '';
+            if(Auth::user()){
+                $transaction = Transaction::where('user_id',Auth::user()->id)->get();
             }
+
+            return view('admin.transaction', compact('user','book','transaction'));
+        }elseif(Auth::user()->level == 'member'){
 
             $transaction = Transaction::where('user_id',Auth::user()->id)->get();
             

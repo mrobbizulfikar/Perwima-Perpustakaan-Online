@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use App\Category;
+use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use DataTables;
+use Auth;
 
 class BookController extends Controller
 {
@@ -33,6 +35,48 @@ class BookController extends Controller
         $category = Category::get();
 
         return view('admin.book', compact('category'));
+    }
+
+    public function search(Request $request)
+    {
+        $transaction = '';
+        if(Auth::user()){
+            $transaction = Transaction::where('user_id',Auth::user()->id)->get();
+        }
+
+        $category = Category::get();
+
+        $r_keyword = $request->keyword;
+        $r_category = $request->category;
+
+        if(!empty($r_keyword) && empty($r_category)){
+            $book = Book::where('title', 'like', "%{$r_keyword}%")->paginate(15);
+        }elseif(empty($r_keyword) && !empty($r_category)){
+            $book = Book::where('category_id',$r_category)->paginate(15);
+        }elseif(!empty($r_keyword) && !empty($r_category)){
+            $book = Book::where('title', 'like', "%{$r_keyword}%")
+                    ->where('category_id',$r_category)->paginate(10);
+        }else{
+            $book = Book::paginate(15);
+        }
+
+        $r_category = Category::find($r_category);
+
+        return view('pages.book.search', compact('transaction','category','r_keyword','r_category','book'));
+    }
+
+    public function detail($isbn)
+    {
+        $transaction = '';
+        if(Auth::user()){
+            $transaction = Transaction::where('user_id',Auth::user()->id)->get();
+        }
+        
+        $category = Category::get();
+
+        $book = Book::where('isbn',$isbn)->first();
+
+        return view('pages.book.detail', compact('transaction','category','book'));
     }
 
     /**

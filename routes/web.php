@@ -31,3 +31,8 @@ Route::middleware('level')->group(function (){
 Route::prefix('member')->name('member.')->group(function(){
 	Route::resource('transaction', 'TransactionController');
 });
+
+Route::prefix('book')->name('book.')->group(function(){
+	Route::get('{isbn}/detail', 'BookController@detail')->name('detail');
+	Route::get('search', 'BookController@search')->name('search');
+});
