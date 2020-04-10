@@ -27,7 +27,7 @@
                     <div class="card-footer ">
                         <hr>
                         <div class="stats">
-                        <i class="fa fa-calendar-o"></i> {{ $lastBook->created_at }}
+                        <i class="fa fa-calendar-o"></i> {{ $lastBook ? $lastBook->created_at : '-' }}
                         </div>
                     </div>
                     </div>
@@ -53,7 +53,7 @@
                     <div class="card-footer ">
                         <hr>
                         <div class="stats">
-                        <i class="fa fa-calendar-o"></i> {{ $lastBook->created_at }}
+                        <i class="fa fa-calendar-o"></i> {{ $lastTransaction ? $lastTransaction->created_at : '-' }}
                         </div>
                     </div>
                     </div>
@@ -105,7 +105,7 @@
                     <div class="card-footer ">
                         <hr>
                         <div class="stats">
-                        <i class="fa fa-calendar-o"></i> {{ $lastUser->created_at }}
+                        <i class="fa fa-calendar-o"></i> {{ $lastUser ? $lastUser->created_at : '-' }}
                         </div>
                     </div>
                     </div>
