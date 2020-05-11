@@ -13,7 +13,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table" id="data-table">
+                                    <table class="table table-hover" id="data-table">
                                         <thead class=" text-primary">
                                             <tr>
                                                 <th>
@@ -66,9 +66,9 @@
                 ajax: '{{ route("admin.history.index") }}',
                 columns: [
                     { data: 'id', name: 'id', class: 'text-center' },
-                    { data: 'user.name', name: 'user_id' },
-                    { data: 'book.isbn', name: 'isbn' },
-                    { data: 'book.title', name: 'book_id' },
+                    { data: 'user.name', name: 'user.name' },
+                    { data: 'book.isbn', name: 'book.isbn' },
+                    { data: 'book.title', name: 'book.title' },
                     { data: 'borrow_date', name: 'borrow_date' },
                     { data: 'return_date', name: 'return_date' },
                     { data: 'submit_date', name: 'submit_date' },

@@ -14,7 +14,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table" id="data-table">
+                                    <table class="table table-hover" id="data-table">
                                         <thead class=" text-primary">
                                             <tr>
                                                 <th class="text-center">
@@ -23,11 +23,8 @@
                                                 <th>
                                                     Kategori
                                                 </th>
-                                                <th class="text-right">
-                                                    Denda
-                                                </th>
                                                 <th class="text-center">
-                                                    Opsi
+                                                    Tindakan
                                                 </th>
                                             </tr>
                                         </thead>
@@ -40,7 +37,7 @@
             </div>
 
             <div class="modal fade" id="ajaxModel" aria-hidden="true" data-toggle="modal">
-                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title text-danger" id="modelHeading"></h5>
@@ -56,11 +53,6 @@
                                     <label for="jenis" class="col-sm-2">Nama&nbsp;Kategori</label>
                                     <div class="col-sm-12">
                                         <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Kategori" value="" required="">
-                                    </div>
-                                    <br>
-                                    <label for="jenis" class="col-sm-2">Denda</label>
-                                    <div class="col-sm-6">
-                                        <input type="number" class="form-control" id="fine" name="fine" placeholder="0" value="" required="">
                                     </div>
                                 </div>
 
@@ -90,7 +82,6 @@
                 columns: [
                     { data: 'id', name: 'id', class: 'text-center' },
                     { data: 'name', name: 'name', },
-                    { data: 'fine', name: 'fine', class: 'text-right' },
                     { data: 'option', name: 'option', class: 'text-center', orderable: false, searchable: false }
                 ],
                 

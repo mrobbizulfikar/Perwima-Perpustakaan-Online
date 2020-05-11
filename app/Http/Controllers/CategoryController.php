@@ -56,8 +56,7 @@ class CategoryController extends Controller
         Category::updateOrCreate(
             ['id' => $request->item_id],
             [
-                'name' => $request->name,
-                'fine' => $request->fine
+                'name' => $request->name
             ]
         );
 

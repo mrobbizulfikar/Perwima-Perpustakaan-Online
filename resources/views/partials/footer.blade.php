@@ -85,7 +85,7 @@
                                         <time datetime="2017-02-13">&nbsp;</time>
                                         <time datetime="2017-02-13">Minggu: Tutup</time>
                                     </div>
-                                </div>			
+                                </div>
                             </div>
                             <div class="col-md-4 col-sm-6 widget-container">
                                 <div class="widget twitter-widget">

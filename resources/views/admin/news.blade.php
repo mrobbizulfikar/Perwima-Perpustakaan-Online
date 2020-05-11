@@ -14,7 +14,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table" id="data-table">
+                                    <table class="table table-hover" id="data-table">
                                         <thead class=" text-primary">
                                             <tr>
                                                 <th class="text-center">
@@ -33,7 +33,7 @@
                                                     Tanggal
                                                 </th>
                                                 <th class="text-center">
-                                                    Opsi
+                                                    Tindakan
                                                 </th>
                                             </tr>
                                         </thead>
@@ -46,7 +46,7 @@
             </div>
 
             <div class="modal fade" id="ajaxModel" aria-hidden="true" data-toggle="modal">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title text-danger" id="modelHeading"></h5>
@@ -146,7 +146,7 @@
                 $('#ajaxModel').modal('show');
                 $("#image").prop('required',true);
                 $('#btnDiscard').addClass('d-none');
-                $("#image").attr('src','{{ asset('media/images/news/insert.png') }}');
+                $("#image").attr('src','{{ asset('media/images/news/default.png') }}');
             });
             
             $('body').on('click', '.editItem', function () {

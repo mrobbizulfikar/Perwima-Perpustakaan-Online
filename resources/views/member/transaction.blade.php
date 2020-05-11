@@ -127,7 +127,7 @@
                                                                     <tr class="cart_item">
                                                                             <td data-title="Product" class="product-name text-right" colspan="4">
                                                                                 <p class="h1">Total Denda</p>
-                                                                                <p>Rp{{ $ft->sum('fine') }}</p>
+                                                                                <p>Rp{{ $transaction->sum('fine') }}</p>
                                                                             </td>
                                                                             <!-- <td data-title="action" class="product-action">
                                                                                 <div class="dropdown">

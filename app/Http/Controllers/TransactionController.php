@@ -27,24 +27,28 @@ class TransactionController extends Controller
     public function index(Request $request)
     {
         if(Auth::user()->level == 'admin'){
-            if ($request->ajax()) {
-                $data = Transaction::with('user','book')->get();
-
-                return Datatables::of($data)->addIndexColumn()->addColumn('option', function($row){
-                    $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteItem">PINJAM</a>';
-                    return $btn;
-                })->rawColumns(['option'])->make(true);
+            if ($request->is(['member','member/*'])) {
+                abort(404);
+            }else{
+                if ($request->ajax()) {
+                    $data = Transaction::with('user','book')->get();
+    
+                    return Datatables::of($data)->addIndexColumn()->addColumn('option', function($row){
+                        $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-success btn-sm deleteItem">KEMBALIKAN</a>';
+                        return $btn;
+                    })->rawColumns(['option'])->make(true);
+                }
+    
+                $user = User::get();
+                $book = Book::where('status','1')->get();
+                
+                $transaction = '';
+                if(Auth::user()){
+                    $transaction = Transaction::where('user_id',Auth::user()->id)->get();
+                }
+    
+                return view('admin.transaction', compact('user','book','transaction'));
             }
-
-            $user = User::get();
-            $book = Book::where('status','1')->get();
-            
-            $transaction = '';
-            if(Auth::user()){
-                $transaction = Transaction::where('user_id',Auth::user()->id)->get();
-            }
-
-            return view('admin.transaction', compact('user','book','transaction'));
         }elseif(Auth::user()->level == 'member'){
 
             $transaction = Transaction::where('user_id',Auth::user()->id)->get();

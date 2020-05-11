@@ -14,7 +14,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table" id="data-table">
+                                    <table class="table table-hover" id="data-table">
                                         <thead class=" text-primary">
                                             <tr>
                                                 <th>
@@ -39,7 +39,7 @@
                                                     Denda
                                                 </th>
                                                 <th>
-                                                    Status
+                                                    Tindakan
                                                 </th>
                                             </tr>
                                         </thead>
@@ -52,7 +52,7 @@
             </div>
 
             <div class="modal fade" id="ajaxModel" aria-hidden="true" data-toggle="modal">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title text-danger" id="modelHeading"></h5>
@@ -69,17 +69,20 @@
                                         <div class="col-sm">
                                             <label for="user_id" class="col-sm-2">Peminjam</label>
                                             <div class="col-sm-12">
-                                                <select class="form-control searchableSelect py-0" style="width: 100% !important" id="user_id" name="user_id">
+                                                <select class="form-control searchableSelect py-0" style="width: 100% !important" id="user_id" name="user_id" required="">
                                                     <option value="" selected disabled>Pilih User</option>
                                                     @foreach($user as $fu)
-                                                        <option value="{{ $fu->id }}">{{ $fu->name }}</option>
+                                                        @if($fu->level == 'admin')
+                                                        @else
+                                                            <option value="{{ $fu->id }}">{{ $fu->name }}</option>
+                                                        @endif
                                                     @endforeach
                                                 </select>
                                             </div>
                                             <br>
                                             <label for="book_id" class="col-sm-2">Buku</label>
                                             <div class="col-sm-12">
-                                                <select class="form-control searchableSelect py-0" style="width: 100% !important" id="book_id" name="book_id">
+                                                <select class="form-control searchableSelect py-0" style="width: 100% !important" id="book_id" name="book_id" required="">
                                                     <option value="" selected disabled>Pilih Buku</option>
                                                     @foreach($book as $fb)
                                                         <option value="{{ $fb->id }}">{{ $fb->title }}</option>
@@ -130,9 +133,9 @@
                 ajax: '{{ route("admin.transaction.index") }}',
                 columns: [
                     { data: 'id', name: 'id', class: 'text-center' },
-                    { data: 'user.name', name: 'user_id' },
-                    { data: 'book.isbn', name: 'isbn' },
-                    { data: 'book.title', name: 'book_id' },
+                    { data: 'user.name', name: 'user.name' },
+                    { data: 'book.isbn', name: 'book.isbn' },
+                    { data: 'book.title', name: 'book.title' },
                     { data: 'borrow_date', name: 'borrow_date' },
                     { data: 'return_date', name: 'return_date' },
                     { data: 'fine', name: 'fine', class: 'text-right' },
@@ -215,7 +218,7 @@
 
             $('body').on('click', '.deleteItem', function () {
                 var item_id = $(this).data("id");
-                result = confirm("Apakah buku sudah dikembalikan?");
+                result = confirm("Apakah buku yang dikembalikan sudah sesuai dengan ketentuan?");
 
                 if(result){
                     $.ajax({
@@ -228,7 +231,7 @@
                             
                             $.toast({
                                 heading: 'Pemberitahuan',
-                                text: 'Item terhapus!',
+                                text: 'Buku berhasil dikembalikan!',
                                 position: 'top-right',
                                 loaderBg: '#ef8243',
                                 bgColor: '#212120',

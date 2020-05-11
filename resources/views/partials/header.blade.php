@@ -10,7 +10,7 @@
                         <span class="navbar-toggler-bar bar3"></span>
                     </button>
                     </div>
-                    <a class="navbar-brand">Dashboard</a>
+                    <a href="{{ route('home') }}" class="h6"><i class="fa fa-home fa-2x"></i> Kembali ke Beranda</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -170,7 +170,7 @@
                                                 </ul>
                                             </li>
                                             <li><a href="{{ route('home') }}/#footer">Layanan</a></li>
-                                            <li><a href="{{ route('home') }}/#footer">Kontak</a></li>
+                                            <li><a href="{{ route('home') }}/#footer" class="scroll">Kontak</a></li>
                                         </ul>
                                     </div>
                                 </div>
