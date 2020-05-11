@@ -7,6 +7,15 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+
+## IMPORTANT!
+
+Don't forget to add the syntax below to the database.
+
+```
+CREATE EVENT fine ON SCHEDULE EVERY 1 DAY DO UPDATE transactions SET fine = IF(datediff(CURRENT_DATE,return_date) > 0, fine + 1000,fine+0)
+```
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
